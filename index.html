@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Notes Hub - Engineering Study Materials</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-book-reader"></i> NotesHub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#branches">Branches</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#announcements">Announcements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz">Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#leaderboard">Leaderboard</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search notes...">
+                        <button id="searchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Your Academic <span class="highlight">Notes Hub</span></h1>
+                    <p>Access comprehensive study materials, notes, and resources for all engineering branches. Powered by Google Drive for easy access and download.</p>
+                    <div class="hero-buttons">
+                        <a href="#branches" class="btn btn-primary"><i class="fas fa-graduation-cap"></i> Explore Notes</a>
+                        <a href="#announcements" class="btn btn-outline"><i class="fas fa-bullhorn"></i> Announcements</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-layer-group"></i>
+                            <h3>5</h3>
+                            <p>Branches</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-book"></i>
+                            <h3>64+</h3>
+                            <p>Subjects</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-file-alt"></i>
+                            <h3>500+</h3>
+                            <p>Notes</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h3>1000+</h3>
+                            <p>Students</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branch Selection -->
+    <section id="branches" class="branches-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-university"></i> Select Your Branch</h2>
+                <p>Choose your engineering branch to access subject-wise notes</p>
+            </div>
+            
+            <div class="branch-filters">
+                <button class="filter-btn active" data-branch="all">All Branches</button>
+                <button class="filter-btn" data-branch="cs">Computer Science</button>
+                <button class="filter-btn" data-branch="me">Mechanical</button>
+                <button class="filter-btn" data-branch="ce">Civil</button>
+                <button class="filter-btn" data-branch="ee">Electrical</button>
+                <button class="filter-btn" data-branch="it">Information Tech</button>
+            </div>
+
+            <div class="row g-4" id="branchCards">
+                <!-- Branch cards will be dynamically inserted -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Notes Display Section -->
+    <section id="notes" class="notes-section">
+        <div class="container">
+            <div class="notes-header">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <h2 id="selectedBranchTitle">All Notes</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="semesterFilter" class="form-select">
+                            <option value="">Select Semester</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+                            <option value="7">Semester 7</option>
+                            <option value="8">Semester 8</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="subjectFilter" class="form-select">
+                            <option value="">Select Subject</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes-grid" id="notesGrid">
+                <!-- Notes will be dynamically inserted -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcements Section -->
+    <section id="announcements" class="announcements-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-bullhorn"></i> Announcements</h2>
+                <p>Stay updated with latest exam schedules, new uploads, and events</p>
+            </div>
+            <div class="row g-4" id="announcementsGrid">
+                <!-- Announcements will be dynamically inserted -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-brain"></i> Practice Quiz</h2>
+                <p>Test your knowledge with MCQs for each subject</p>
+            </div>
+            <div class="quiz-controls">
+                <select id="quizBranch" class="form-select">
+                    <option value="">Select Branch</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="me">Mechanical</option>
+                    <option value="ce">Civil</option>
+                    <option value="ee">Electrical</option>
+                    <option value="it">Information Tech</option>
+                </select>
+                <select id="quizSubject" class="form-select">
+                    <option value="">Select Subject</option>
+                </select>
+                <button class="btn btn-primary" id="startQuiz">
+                    <i class="fas fa-play"></i> Start Quiz
+                </button>
+            </div>
+            <div class="quiz-container" id="quizContainer" style="display: none;">
+                <div class="quiz-header">
+                    <span id="questionNumber">Question 1</span>
+                    <span id="quizScore">Score: 0</span>
+                </div>
+                <div class="quiz-question" id="quizQuestion">
+                    <!-- Question will be inserted here -->
+                </div>
+                <div class="quiz-options" id="quizOptions">
+                    <!-- Options will be inserted here -->
+                </div>
+                <div class="quiz-nav">
+                    <button class="btn btn-secondary" id="prevQuestion">Previous</button>
+                    <button class="btn btn-primary" id="nextQuestion">Next</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Syllabus Tracker -->
+    <section id="syllabus" class="syllabus-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-tasks"></i> Syllabus Tracker</h2>
+                <p>Track your study progress for each subject</p>
+            </div>
+            <div class="syllabus-controls">
+                <select id="syllabusBranch" class="form-select">
+                    <option value="">Select Branch</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="me">Mechanical</option>
+                    <option value="ce">Civil</option>
+                    <option value="ee">Electrical</option>
+                    <option value="it">Information Tech</option>
+                </select>
+                <select id="syllabusSemester" class="form-select">
+                    <option value="">Select Semester</option>
+                </select>
+                <button class="btn btn-primary" id="loadSyllabus">
+                    <i class="fas fa-search"></i> Load
+                </button>
+            </div>
+            <div class="syllabus-progress" id="syllabusProgress">
+                <!-- Progress bars will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-trophy"></i> Top Contributors</h2>
+                <p>Students who uploaded the most notes this month</p>
+            </div>
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    <div class="rank">Rank</div>
+                    <div class="name">Contributor</div>
+                    <div class="branch">Branch</div>
+                    <div class="uploads">Uploads</div>
+                </div>
+                <div class="leaderboard-body" id="leaderboardBody">
+                    <!-- Leaderboard entries will be dynamically inserted -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribution Form -->
+    <section id="contribute" class="contribute-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-upload"></i> Contribute Notes</h2>
+                <p>Share your study materials with fellow students</p>
+            </div>
+            <div class="contribute-form">
+                <form id="contributionForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="contributorName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="contributorEmail" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Branch</label>
+                            <select class="form-select" id="contributeBranch" required>
+                                <option value="">Select Branch</option>
+                                <option value="cs">Computer Science</option>
+                                <option value="me">Mechanical</option>
+                                <option value="ce">Civil</option>
+                                <option value="ee">Electrical</option>
+                                <option value="it">Information Tech</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Semester</label>
+                            <select class="form-select" id="contributeSemester" required>
+                                <option value="">Select Semester</option>
+                                <option value="1">Semester 1</option>
+                                <option value="2">Semester 2</option>
+                                <option value="3">Semester 3</option>
+                                <option value="4">Semester 4</option>
+                                <option value="5">Semester 5</option>
+                                <option value="6">Semester 6</option>
+                                <option value="7">Semester 7</option>
+                                <option value="8">Semester 8</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="contributeSubject" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Google Drive Link</label>
+                            <input type="url" class="form-control" id="driveLink" placeholder="https://drive.google.com/..." required>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Notes
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="previewTitle">Document Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="previewFrame" src="" width="100%" height="500px" frameborder="0"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="downloadLink" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4><i class="fas fa-book-reader"></i> NotesHub</h4>
+                    <p>Your one-stop destination for engineering study materials. Access notes, previous year papers, and more.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#branches">Branches</a></li>
+                        <li><a href="#announcements">Announcements</a></li>
+                        <li><a href="#contribute">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@noteshub.com</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/nikhildubey902625"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/nikhildubey902625"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/nikhildubey902625"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/nikhildubey902625"><i class="fab fa-linkedin"></i></a> 
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NotesHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
