@@ -623,11 +623,11 @@ const embeddedData = {
     { "id": 4, "title": "Notes Contribution Bonus", "description": "Top contributors this month will receive bonus points. Keep uploading!", "date": "2026-04-20", "type": "announcement", "priority": "low" }
   ],
   "contributors": [
-    { "name": "John Doe", "uploads": 45, "branch": "CS" },
-    { "name": "Jane Smith", "uploads": 38, "branch": "IT" },
-    { "name": "Mike Johnson", "uploads": 32, "branch": "CS" },
-    { "name": "Sarah Lee", "uploads": 28, "branch": "EE" },
-    { "name": "Alex Brown", "uploads": 25, "branch": "ME" }
+    { "name": "Nikhil Dubey", "uploads": 45, "branch": "CS" },
+    { "name": "Ankit Yadav", "uploads": 38, "branch": "DS" },
+    { "name": "Mansi Shinde", "uploads": 32, "branch": "CS" },
+    { "name": "Prince Soni", "uploads": 28, "branch": "EE" },
+    { "name": "Vedant", "uploads": 25, "branch": "ME" }
   ],
   "quizzes": [
     {
